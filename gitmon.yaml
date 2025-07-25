@@ -1,5 +1,4 @@
 name: Mocha         # Your GitMon's name
-mood: idle          # Current mood
 lastFedBy: ~        # Who last fed it
 lastFedAt: ~        # When it was last fed
 createdAt: ~        # When it was created
