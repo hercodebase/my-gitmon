@@ -8,8 +8,8 @@ fedCount: 0         # Total times fed
 # See available sprites and costumes: 
 # https://github.com/hercodebase/gitmon-server/tree/main/sprites
 appearance:
-  sprite: cat/tabby
-  costume: witch-hat
+  sprite: cat/orange
+  costume: ~
 
 settings:
   allowPublicFeeding: true     # Let anyone feed it
