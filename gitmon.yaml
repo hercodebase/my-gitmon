@@ -1,6 +1,6 @@
 name: Mocha         # Your GitMon's name
 lastFedBy: ~        # Who last fed it
-lastFedAt: 2025-07-18T21:21:30.456Z        # When it was last fed
+lastFedAt: ~        # When it was last fed
 createdAt: ~        # When it was created
 fedCount: 0         # Total times fed
 
