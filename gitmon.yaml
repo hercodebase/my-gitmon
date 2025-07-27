@@ -1,8 +1,8 @@
-name: Mocha Teste         # Your GitMon's name
-lastFedBy: ~        # Who last fed it
-lastFedAt: 2025-07-27T02:21:18.990Z        # When it was last fed
+name: Mocha         # Your GitMon's name
+lastFedBy: hercodebase        # Who last fed it
+lastFedAt: '2025-07-27T03:07:17Z'        # When it was last fed
 createdAt: ~        # When it was created
-fedCount: 0         # Total times fed
+fedCount: 1         # Total times fed
 
 # Appearance options for your GitMon.
 # See available sprites and costumes: 
@@ -12,7 +12,7 @@ appearance:
   background: grass
 
 settings:
-  allowPublicFeeding: true     # Let anyone feed it
+  allowPublicFeeding: true
   mods:
     enabled: false             # Enable custom sprite
     customSprite: ~            # URL to custom image
