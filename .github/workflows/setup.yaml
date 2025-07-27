@@ -1,6 +1,7 @@
 name: Setup GitMon
 
-on: fork
+on:
+  workflow_dispatch:
 
 permissions:
   contents: write
