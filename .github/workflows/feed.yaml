@@ -36,7 +36,7 @@ jobs:
           FED_COUNT=$(yq '.fedCount' gitmon.yaml)
           FED_COUNT=$((FED_COUNT + 1))
           echo "fedCount=$FED_COUNT" >> $GITHUB_OUTPUT
-          DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
+          DATE=$(date -u +%Y-%m-%dT%H:%M:%SZ)
           echo "date=$DATE" >> $GITHUB_OUTPUT
 
       - name: Updating GitMon data

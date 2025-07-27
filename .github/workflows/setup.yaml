@@ -1,0 +1,32 @@
+name: Setup GitMon
+
+on: fork
+
+permissions:
+  contents: write
+  issues: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Get current date
+        id: data
+        run: |
+          DATE=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          echo "date=$DATE" >> $GITHUB_OUTPUT
+
+      - name: Updating GitMon data
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          valueFile: 'gitmon.yaml'
+          masterBranchName: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+          changes: |
+            {
+              "createdAt": "${{ steps.data.outputs.date }}",
+            }
