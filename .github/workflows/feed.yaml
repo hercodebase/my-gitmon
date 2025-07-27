@@ -1,0 +1,49 @@
+name: Feed GitMon
+
+on:
+  issues:
+    types:
+      - opened
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Install yq
+        run: sudo apt-get install -y yq
+
+      - name: Get current date and fedCount
+        id: data
+        run: |
+          FED_COUNT=$(yq '.fedCount' gitmon.yaml)
+          FED_COUNT=$((FED_COUNT + 1))
+          echo "fedCount=$FED_COUNT" >> $GITHUB_OUTPUT
+          echo "date=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_OUTPUT
+
+      - name: Updating GitMon data
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          valueFile: 'gitmon.yaml'
+          changes: |
+          {
+            "lastFedBy": "${{ github.actor }}",
+            "lastFedAt": "${{ steps.gitmon.outputs.date }}",
+            "fedCount": ${{ steps.data.outputs.fedCount }}
+          }
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add gitmon.yaml
+          git commit -m "Update GitMon data"
+          git push
