@@ -9,7 +9,7 @@ fedCount: 0         # Total times fed
 # https://github.com/hercodebase/gitmon-server/tree/main/sprites
 appearance:
   sprite: cat/orange
-  background: default
+  background: grass
 
 settings:
   allowPublicFeeding: true     # Let anyone feed it
