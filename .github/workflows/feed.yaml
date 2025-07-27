@@ -42,6 +42,7 @@ jobs:
         uses: fjogeleit/yaml-update-action@main
         with:
           valueFile: 'gitmon.yaml'
+          masterBranchName: main
           token: ${{ secrets.GITHUB_TOKEN }}
           changes: |
             {
@@ -50,10 +51,10 @@ jobs:
               "fedCount": ${{ steps.data.outputs.fedCount }}
             }
 
-      - name: Commit changes
-        run: |
-          git config --global user.name 'github-actions'
-          git config --global user.email 'github-actions@github.com'
-          git add gitmon.yaml
-          git commit -m "Update GitMon data"
-          git push
+      # - name: Commit changes
+      #   run: |
+      #     git config --global user.name 'github-actions'
+      #     git config --global user.email 'github-actions@github.com'
+      #     git add gitmon.yaml
+      #     git commit -m "Update GitMon data"
+      #     git push
