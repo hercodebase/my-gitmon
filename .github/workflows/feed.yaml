@@ -34,11 +34,11 @@ jobs:
         with:
           valueFile: 'gitmon.yaml'
           changes: |
-          {
-            "lastFedBy": "${{ github.actor }}",
-            "lastFedAt": "${{ steps.gitmon.outputs.date }}",
-            "fedCount": ${{ steps.data.outputs.fedCount }}
-          }
+            {
+              "lastFedBy": "${{ github.actor }}",
+              "lastFedAt": "${{ steps.gitmon.outputs.date }}",
+              "fedCount": ${{ steps.data.outputs.fedCount }}
+            }
 
       - name: Commit changes
         run: |
