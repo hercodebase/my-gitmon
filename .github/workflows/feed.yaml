@@ -1,9 +1,16 @@
 name: Feed GitMon
 
 on:
+  push:
+    branches:
+      - 'tests'
   issues:
     types:
       - opened
+
+permissions:
+  contents: write
+  issues: read
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -36,7 +43,7 @@ jobs:
           changes: |
             {
               "lastFedBy": "${{ github.actor }}",
-              "lastFedAt": "${{ steps.gitmon.outputs.date }}",
+              "lastFedAt": "${{ steps.data.outputs.date }}",
               "fedCount": ${{ steps.data.outputs.fedCount }}
             }
 
