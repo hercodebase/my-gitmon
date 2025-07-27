@@ -1,13 +1,18 @@
-name: Mocha Teste
-lastFedBy: hercodebase
-lastFedAt: '2025-07-27T03:07:17Z'
-createdAt: null
-fedCount: 1
+name: Mocha         # Your GitMon's name
+lastFedBy: hercodebase        # Who last fed it
+lastFedAt: '2025-07-27T03:07:17Z'        # When it was last fed
+createdAt: ~        # When it was created
+fedCount: 1         # Total times fed
+
+# Appearance options for your GitMon.
+# See available sprites and costumes: 
+# https://github.com/hercodebase/gitmon-server/tree/main/sprites
 appearance:
   sprite: cat/orange
   background: grass
+
 settings:
   allowPublicFeeding: true
   mods:
-    enabled: false
-    customSprite: null
+    enabled: false             # Enable custom sprite
+    customSprite: ~            # URL to custom image
