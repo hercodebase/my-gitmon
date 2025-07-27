@@ -26,8 +26,9 @@ jobs:
         with:
           valueFile: 'gitmon.yaml'
           masterBranchName: main
+          create: true
           token: ${{ secrets.GITHUB_TOKEN }}
           changes: |
             {
-              "createdAt": "${{ steps.data.outputs.date }}",
+              "createdAt": "${{ steps.data.outputs.date }}"
             }
